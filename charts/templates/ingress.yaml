@@ -28,6 +28,7 @@ spec:
       http:
         paths:
           {{- range .paths }}
+          - pathType: Prefix
           - path: {{ . }}
             backend:
               service:
