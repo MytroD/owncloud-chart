@@ -1,0 +1,24 @@
+apiVersion: v1
+entries:
+  owncloud:
+  - apiVersion: v2
+    appVersion: 1.16.0
+    created: "2023-11-16T11:06:55.658939098Z"
+    description: A Helm chart for Kubernetes
+    digest: 609441bb05ba2727445776b3609a554feaf6c80b6d946b8e9b85c34230124e04
+    name: owncloud
+    type: application
+    urls:
+    - owncloud-0.2.0.tgz
+    version: 0.2.0
+  - apiVersion: v2
+    appVersion: 1.16.0
+    created: "2023-11-16T11:06:55.650655151Z"
+    description: A Helm chart for Kubernetes
+    digest: 36fe242125a42931dedd3310fb75e0b3a5ce5942b1e27b96dcb9a02e5e9aa9d9
+    name: owncloud
+    type: application
+    urls:
+    - owncloud-0.1.0.tgz
+    version: 0.1.0
+generated: "2023-11-16T11:06:55.642679769Z"
