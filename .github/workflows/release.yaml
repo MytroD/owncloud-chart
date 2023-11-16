@@ -33,4 +33,3 @@ jobs:
           config: cr.yaml
         env:
           CR_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
-        run: cr upload --packages-with-index --push --skip-existing
