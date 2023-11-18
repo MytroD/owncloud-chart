@@ -5,7 +5,7 @@
 replicaCount: 1
 
 owncloud:
-  domain: owncloud.chart.example
+  domain: owncloud.doianov.me
   username: owncloud
   password: owncloud
 
@@ -23,12 +23,18 @@ externalDatabase:
 persistence:
   enabled: true
   owncloud:
-    accessMode: ReadWriteOnce
+    storageClass: "nfs-storage-1"
+      # -- Labels for the PVC
+    labels: {}
+      # -- Primary persistent volume claim annotations
+    annotations: {}
+      # -- Primary persistent volume access Modes
+    accessModes:
+      - ReadWriteOnce
+      # -- Primary persistent volume size
     size: 8Gi
-    nfs: {}
 
-redis:
-  enabled: false
+enabled: false
 
 image:
   repository: docker.io/owncloud/server
@@ -63,7 +69,7 @@ securityContext: {}
   # runAsUser: 1000
 
 service:
-  type: LoadBalancer
+  type: ClusterIP
   port: 80
 
 ingress:
@@ -72,12 +78,12 @@ ingress:
     # kubernetes.io/ingress.class: nginx
     # kubernetes.io/tls-acme: "true"
   hosts:
-    - host: "owncloud.chart.example"
+    - host: "owncloud.doianov.me"
       paths: ["/*"]
       servicePort: 80
   tls:
     - hosts:
-      - "owncloud.chart.example"
+      - "owncloud.doianov.me"
       secretName: owncloud
 
 resources: {}
@@ -95,7 +101,7 @@ resources: {}
 autoscaling:
   enabled: false
   minReplicas: 1
-  maxReplicas: 100
+  maxReplicas: 10
   targetCPUUtilizationPercentage: 80
   # targetMemoryUtilizationPercentage: 80
 
