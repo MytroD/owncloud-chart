@@ -105,6 +105,37 @@ autoscaling:
   targetCPUUtilizationPercentage: 80
   # targetMemoryUtilizationPercentage: 80
 
+
+redis:
+  enabled: true
+  image:
+    registry: docker.io
+    repository: bitnami/redis
+    tag: 6.0.15-debian-10-r38
+  usePassword: false
+  master:
+    persistence:
+      enabled: true
+      storageClass: "nfs-storage-1"
+      accessMode: ReadWriteOnce
+      size: 8Gi
+  slave:
+    persistence:
+      enabled: true
+      storageClass: "nfs-storage-1"
+      accessMode: ReadWriteOnce
+      size: 8Gi
+  sentinel:
+    enabled: false
+    replicas: 3
+    usePassword: false
+    persistence:
+      enabled: true
+      storageClass: "nfs-storage-1"
+      accessMode: ReadWriteOnce
+      size: 1Gi
+
+
 nodeSelector: {}
 
 tolerations: []
