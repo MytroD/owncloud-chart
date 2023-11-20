@@ -10,29 +10,28 @@ owncloud:
   password: owncloud
 
 mariadb:
-  enabled: false
+  enabled: true
 
-externalDatabase:
-  type: ""
-  host: ""
-  port: 3306
-  name: owncloud
-  user: owncloud
-  password: owncloud
+#externalDatabase:
+#  type: ""
+#  host: ""
+#  port: 3306
+#  name: owncloud
+#  user: owncloud
+#  password: owncloud
 
 persistence:
   enabled: true
-  owncloud:
-    storageClass: "nfs-storage-1"
+  storageClass: "nfs-storage-1"
       # -- Labels for the PVC
-    labels: {}
+  labels: {}
       # -- Primary persistent volume claim annotations
-    annotations: {}
+  annotations: {}
       # -- Primary persistent volume access Modes
-    accessModes:
-      - ReadWriteOnce
+  accessModes:
+    - ReadWriteOnce
       # -- Primary persistent volume size
-    size: 8Gi
+  size: 8Gi
 
 enabled: false
 
